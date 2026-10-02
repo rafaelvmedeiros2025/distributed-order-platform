@@ -1,0 +1,49 @@
+{
+  "name": "distributed-order-platform",
+  "version": "1.0.0",
+  "description": "Event-driven order processing with transactional outbox, concurrent inventory reservations, idempotency, and resilient workers.",
+  "directories": {
+    "doc": "docs",
+    "test": "test"
+  },
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "worker:dev": "tsx watch src/run-worker.ts",
+    "build": "tsc",
+    "start": "node dist/src/server.js",
+    "worker": "node dist/src/run-worker.js",
+    "migrate": "node --import tsx scripts/migrate.ts",
+    "seed": "node --import tsx scripts/seed.ts",
+    "test": "node --import tsx --test test/domain.test.ts",
+    "test:integration": "node --import tsx --test test/integration.test.ts",
+    "check": "tsc --noEmit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rafaelvmedeiros2025/distributed-order-platform.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "UNLICENSED",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/rafaelvmedeiros2025/distributed-order-platform/issues"
+  },
+  "homepage": "https://github.com/rafaelvmedeiros2025/distributed-order-platform#readme",
+  "dependencies": {
+    "@fastify/rate-limit": "^11.2.0",
+    "fastify": "^5.12.5",
+    "ioredis": "^6.0.0",
+    "pg": "^8.23.1"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.4",
+    "@types/pg": "^8.23.1",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2"
+  },
+  "private": true,
+  "engines": {
+    "node": ">=24"
+  }
+}
